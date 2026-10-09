@@ -1,12 +1,58 @@
 # FLSL-cpp
 
-FLSL-CPP makes all those anoying stuff that you rewrite in most of your codes from C++ Simpler
-Like Executing Batch / CMD Commands, you might do a few lines, for one command, but here we give you FLSLBatch::RunBatchInline(); and FLSLBatch::RunBatchScript(String Script ); // for muiltiline
-for another example, we make file handling Leak-proof and way simpler as python / java! like FLSLFIO::ReadFile(String Path); or FLSLFIO::WriteFile(String Path, String Content);
+FLSL makes the annoying stuff you rewrite in every C++ project — batch commands,
+file I/O, logging — into simple one-liners.
 
-# Why?
-FLSL-CPP is made to make code files smaller, coding simpler, and help the C++ World Grow
+## Why?
 
-# Author
-Author: ItzKorosh (Korosh Jale), Iran
-Made With Love
+FLSL-cpp is made to make code files smaller, coding simpler, and help the
+C++ world grow.
+
+## Status
+
+Pre-release. No builds yet, design in progress.
+First release: 0.1 (soon™)
+
+## Planned Features
+
+- File I/O that can't leak — one-line ReadFile / WriteFile
+- Run batch / shell commands inline
+- FLog — simple logging
+- (more as they come)
+
+## Target API (not implemented yet)
+
+**Option 1 — everything in one include:**
+
+```cpp
+#include <FlslCpp/Flsl.hpp>
+
+int main() {
+    FlslFio::WriteFile("hello.txt", "hi from FLSL");
+    auto text = FlslFio::ReadFile("hello.txt");
+
+    FlslBatch::RunBatchInline("echo hello");
+}
+```
+
+**Option 2 — modular, include only what you need:**
+
+```cpp
+#include <FlslCpp/FlslFio.hpp>
+#include <FlslCpp/FlslBatch.hpp>
+
+int main() {
+    FlslFio::WriteFile("hello.txt", "hi from FLSL");
+    auto text = FlslFio::ReadFile("hello.txt");
+
+    FlslBatch::RunBatchInline("echo hello");
+}
+```
+
+## Author
+
+ItzKorosh (Korosh Jale), Iran. Made with love. 🇮🇷
+
+## License
+
+MIT © 2026 Korosh Jale — see [LICENSE](LICENSE).
